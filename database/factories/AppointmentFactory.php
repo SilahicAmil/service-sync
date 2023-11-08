@@ -16,8 +16,9 @@ class AppointmentFactory extends Factory
      */
     public function definition(): array
     {
+        // TODO: Implement the Appointment Factory
         return [
-            //
+
         ];
     }
 }
