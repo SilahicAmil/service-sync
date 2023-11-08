@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); // Add user_id for the relationship
+            $table->string('vehicle_make');
+            $table->string('vehicle_model');
+            $table->integer('vehicle_year');
+            $table->integer('vehicle_miles');
+            $table->string('service_name');
+            $table->date('service_date');
+            $table->decimal('service_price', 10, 2);
+            $table->text('additional_notes')->nullable();
             $table->timestamps();
+
+            // Define foreign key constraint for user_id
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

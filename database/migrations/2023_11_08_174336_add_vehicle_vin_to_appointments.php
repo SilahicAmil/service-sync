@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('role');
-            $table->timestamps();
+        Schema::table('appointments', function (Blueprint $table) {
+            $table->string('vehicle_vin')->nullable();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::table('appointments', function (Blueprint $table) {
+            $table->dropColumn('vehicle_vin');
+        });
     }
 };
