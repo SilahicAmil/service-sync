@@ -43,5 +43,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-//    TODO: Implement BelongsTO here for appointment
+    public function role(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Role::class, 'role');
+    }
 }
