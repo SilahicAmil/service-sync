@@ -9,6 +9,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+<nav>
+    <ul>
+        <div>
+            <h1>Service Sync</h1>
+        </div>
+        <li>
+            Login
+        </li>
+        <li>
+            Register
+        </li>
+        <li>
+            Create
+        </li>
+    </ul>
+</nav>
 
 <main>
     {{$slot}}
