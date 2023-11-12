@@ -10,23 +10,32 @@
 </head>
 <body>
 <nav>
-    <ul>
-        <div>
-            <h1>Service Sync</h1>
+    <ul class="flex h-16 items-center bg-rose-100 rounded-b-lg font-serif mb-4">
+        <div class="text-4xl text-black p-4">
+            <h1>
+                <a href="/">Service Sync</a>
+            </h1>
         </div>
-        <li>
-            Login
-        </li>
-        <li>
-            Register
-        </li>
-        <li>
-            Create
-        </li>
+
+        <div class="ml-auto flex gap-12 p-4">
+{{--            @auth--}}
+                <li class="bg-sky-300 p-2 rounded w-24 justify-center flex">
+                    Login
+                </li>
+                <li class="bg-sky-300 p-2 rounded w-24 justify-center flex">
+                    Create
+                </li>
+{{--            @else--}}
+                <li class="bg-sky-300 p-2 rounded w-24 justify-center flex">
+                    <a href="/register">Register</a>
+                </li>
+
+        </div>
+{{--        @endauth--}}
     </ul>
 </nav>
 
-<main>
+<main class="font-mono">
     {{$slot}}
 </main>
 
