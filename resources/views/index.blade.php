@@ -1,9 +1,41 @@
 <x-layout>
 
     <x-form-card>
-        <form action="">
-            <label for="name">Name</label>
-            <input type="text">
+        <form action="" class="flex-col flex">
+            <label for="name">Worker</label>
+            <select name="worker" id="worker">
+                @foreach($users as $worker)
+                    <option value="{{$worker->id}}">{{$worker->name}}</option>
+                @endforeach
+            </select>
+            <label for="name">Vehicle Make</label>
+            <label>
+                <input type="text">
+            </label>
+            <label for="name">Vehicle Model</label>
+            <label>
+                <input type="text">
+            </label>
+            <label for="name">Vehicle Year</label>
+            <label>
+                <input type="text">
+            </label>
+            <label for="name">Service Name</label>
+            <label>
+                <input type="text">
+            </label>
+            <label for="name">Service Date</label>
+            <label>
+                <input type="text">
+            </label>
+            <label for="name">Vehicle Vin</label>
+            <label>
+                <input type="text">
+            </label>
+            <label for="name">Notes</label>
+            <label>
+                <input type="text">
+            </label>
         </form>
     </x-form-card>
 
