@@ -16,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AppointmentController::class, 'index']);
 
+// Look into using
+// Route::resource()
+//
+
 // TODO: Implement all the Routes and ETC

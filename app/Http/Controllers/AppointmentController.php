@@ -15,6 +15,7 @@ class AppointmentController extends Controller
     {
         $appointments = Appointment::latest()->get();
         $users = User::all();
+        //   eventually show appointments for the specific user
         return view('index' , compact('appointments', 'users'));
     }
 
