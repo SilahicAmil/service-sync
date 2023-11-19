@@ -2,10 +2,12 @@
 
     <x-form-card>
         <form action="" class="flex-col flex">
-            <label for="name">Worker</label>
+            <label for="worker">Worker</label>
             <select name="worker" id="worker">
-                @foreach($users as $worker)
-                    <option value="{{$worker->id}}">{{$worker->name}}</option>
+                @foreach($users->sortByDesc('role_id') as $worker)
+                    @if($worker->role_id == 1 || $worker->role_id == 5)
+                        <option value="{{$worker->id}}">{{$worker->name}} - {{$worker->role->role}}</option>
+                    @endif
                 @endforeach
             </select>
             <label for="name">Vehicle Make</label>
