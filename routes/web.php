@@ -21,6 +21,7 @@ Route::get('/', [AppointmentController::class, 'index']);
 Route::resource('appointments',
     AppointmentController::class)->only([
     'index',
+    'create',
     'store'
 ]);
 

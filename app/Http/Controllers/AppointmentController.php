@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -11,7 +12,7 @@ class AppointmentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() : View
     {
         $appointments = Appointment::latest()->get();
         $users = User::all();
@@ -22,9 +23,10 @@ class AppointmentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        $users = User::all();
+        return view('appointments.create', ['users' => $users]);
     }
 
     /**

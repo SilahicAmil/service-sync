@@ -23,7 +23,7 @@
                     Login
                 </li>
                 <li class="bg-sky-300 p-2 rounded w-24 justify-center flex">
-                    Create
+                    <a href="appointments/create">Create</a>
                 </li>
 {{--            @else--}}
                 <li class="bg-sky-300 p-2 rounded w-24 justify-center flex">
