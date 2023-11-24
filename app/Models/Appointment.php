@@ -10,10 +10,10 @@ class Appointment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'car_make',
-        'car_model',
-        'car_year',
-        'car_miles',
+        'vehicle_make',
+        'vehicle_model',
+        'vehicle_year',
+        'vehicle_miles',
         'vehicle_vin',
         'service_name',
         'service_date',

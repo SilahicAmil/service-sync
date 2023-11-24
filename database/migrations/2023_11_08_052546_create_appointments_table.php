@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('vehicle_miles');
             $table->string('service_name');
             $table->date('service_date');
-            $table->decimal('service_price', 10, 2);
+            $table->decimal('service_price', 10, 2)->nullable();
             $table->text('additional_notes')->nullable();
             $table->timestamps();
 
