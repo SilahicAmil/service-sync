@@ -14,12 +14,19 @@ class AppointmentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() : View
+    public function index(): View
     {
         $appointments = Appointment::latest()->get();
         $users = User::all();
         //   eventually show appointments for the specific user
         return view('index' , compact('appointments', 'users'));
+    }
+
+    public function viewAll(): View
+    {
+        $appointments = Appointment::latest()->get();
+        $users = User::all();
+        return view('appointments.index', compact('appointments', 'users'));
     }
 
     /**
@@ -34,11 +41,9 @@ class AppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         //
-//        Log::info('Request data:', $request->all());
-//        dd($request->all());
 
         $validated = $request->validate([
             'user_id' => 'required',

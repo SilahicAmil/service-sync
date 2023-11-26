@@ -20,9 +20,11 @@ Route::get('/', [AppointmentController::class, 'index']);
 // Route::resource()
 Route::resource('appointments',
     AppointmentController::class)->only([
-    'index',
     'create',
-    'store'
+    'store',
 ]);
+
+Route::get('/appointments', [AppointmentController::class, 'viewAll']);
+
 
 // TODO: Implement all the Routes and ETC
