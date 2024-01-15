@@ -1,6 +1,8 @@
 <?php
 
-$service_name = [
+$service_names = [
+    'Full Service A',
+    'Full Service B',
     'Oil Change',
     'Brake Inspection',
     'Tire Rotation',
@@ -14,7 +16,9 @@ $service_name = [
     'Exhaust System Inspection',
     'Suspension Check',
     'Power Steering Fluid Flush',
-]
+];
+
+natcasesort($service_names);
 ?>
 
 
@@ -49,13 +53,17 @@ $service_name = [
 
             <label for="service_name">Service</label>
             <label>
-                <select name="service_name" id="service_name">
-                    @foreach($service_name as $services)
+                <select name="service_name" id="service_name" onchange="toggleTextBox()">
+                    @foreach($service_names as $services)
                         <option value="{{$services}}">{{$services}}</option>
                     @endforeach
-                    <option value="other">Other</option>
+                    <option value="Other">Other</option>
                 </select>
             </label>
+            <div id="otherServiceTextBox" style="display: none;">
+                <label for="otherService">Other Service:</label>
+                <input type="text" name="otherService" id="otherService">
+            </div>
             <label for="service_date">Service Date</label>
             <label>
                 <input type="date" name="service_date">
@@ -82,3 +90,16 @@ $service_name = [
 
     </x-form-card>
 </x-layout>
+
+<script>
+    function toggleTextBox() {
+        var selectedValue = document.getElementById('service_name').value;
+        var textBox = document.getElementById('otherServiceTextBox');
+
+        if (selectedValue === 'Other') {
+            textBox.style.display = 'block';
+        } else {
+            textBox.style.display = 'none';
+        }
+    }
+</script>
