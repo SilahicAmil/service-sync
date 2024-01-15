@@ -54,19 +54,15 @@ class AppointmentController extends Controller
             'service_date' => 'required|date',
             'vehicle_vin' => 'nullable',
             'vehicle_miles' => 'required',
-            'service_price' => 'nullable',
-            'additional_notes' => 'required',
+            'service_price' => 'nullable|integer|float',
+            'additional_notes' => 'string|nullable',
         ]);
-
-
-
-        Log::info('Request data First:', $request->all());
 
         // Create the appointment
         try {
             Appointment::create($validated);
             // Redirect to the home page with a success message
-            return redirect('/google')->with('message', 'Appointment Created!');
+            return redirect('/')->with('message', 'Appointment Created!');
         } catch (\Exception $e) {
             // Log the exception for further investigation
             Log::error('Error creating appointment: ' . $e->getMessage());
