@@ -57,13 +57,8 @@ natcasesort($service_names);
                     @foreach($service_names as $services)
                         <option value="{{$services}}">{{$services}}</option>
                     @endforeach
-                    <option value="Other">Other</option>
                 </select>
             </label>
-            <div id="otherServiceTextBox" style="display: none;">
-                <label for="otherService">Other Service:</label>
-                <input type="text" name="otherService" id="otherService">
-            </div>
             <label for="service_date">Service Date</label>
             <label>
                 <input type="date" name="service_date">
@@ -90,16 +85,3 @@ natcasesort($service_names);
 
     </x-form-card>
 </x-layout>
-
-<script>
-    function toggleTextBox() {
-        var selectedValue = document.getElementById('service_name').value;
-        var textBox = document.getElementById('otherServiceTextBox');
-
-        if (selectedValue === 'Other') {
-            textBox.style.display = 'block';
-        } else {
-            textBox.style.display = 'none';
-        }
-    }
-</script>
