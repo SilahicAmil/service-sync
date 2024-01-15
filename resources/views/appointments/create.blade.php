@@ -28,12 +28,18 @@ natcasesort($service_names);
             @csrf
             <label for="user_id">Service Provider</label>
             <select name="user_id" id="user_id">
+                <option value=""></option>
                 @foreach($users->sortByDesc('role_id') as $worker)
                     @if($worker->role_id == 1 || $worker->role_id == 4)
                         <option value="{{$worker->id}}">{{$worker->name}} - {{$worker->role->role}}</option>
                     @endif
                 @endforeach
             </select>
+
+            @error('user_id')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+            @enderror
+
             <label for="vehicle_make">Vehicle Make</label>
             <label>
                 <input type="text" name="vehicle_make" value="{{old('vehicle_make')}}">
