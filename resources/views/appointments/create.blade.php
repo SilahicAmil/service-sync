@@ -30,7 +30,7 @@ natcasesort($service_names);
             <select name="user_id" id="user_id">
                 <option value=""></option>
                 @foreach($users->sortByDesc('role_id') as $worker)
-                    @if($worker->role_id == 1 || $worker->role_id == 4)
+                    @if($worker->role_id == 2 || $worker->role_id == 3)
                         <option value="{{$worker->id}}">{{$worker->name}} - {{$worker->role->role}}</option>
                     @endif
                 @endforeach
