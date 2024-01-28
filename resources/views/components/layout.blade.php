@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav>
-    <ul class="flex h-16 items-center bg-rose-100 rounded-b-lg font-serif mb-4">
+    <ul class="flex h-16 items-center bg-red-100 rounded-b-lg font-serif mb-4">
         <div class="text-4xl text-black p-4">
             <h1>
                 <a href="/">Service Sync</a>
@@ -34,10 +34,5 @@
 {{--        @endauth--}}
     </ul>
 </nav>
-
-<main class="font-mono">
-    {{$slot}}
-</main>
-
 </body>
 </html>
