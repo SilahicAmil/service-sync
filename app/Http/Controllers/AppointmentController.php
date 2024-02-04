@@ -6,6 +6,7 @@ use App\Models\Appointment;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 
@@ -24,7 +25,13 @@ class AppointmentController extends Controller
 
     public function viewAll(): View
     {
-        $appointments = Appointment::latest()->get();
+        $start = microtime(true);
+        $appointments = Cache::remember('appointments', now()->addMinutes(10), function () {
+            return Appointment::latest()->get();
+        });
+        $end = microtime(true);
+        Log::info('Query execution time: ' . ($end - $start) . ' seconds');
+
         $users = User::all();
         return view('appointments.index', compact('appointments', 'users'));
     }
